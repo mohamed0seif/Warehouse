@@ -1,0 +1,99 @@
+﻿@model WebApplication3.Models.Main
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>تعديل</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="NameOperator" class="control-label"></label>
+                <input asp-for="NameOperator" class="form-control" />
+                <span asp-validation-for="NameOperator" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameVendor" class="control-label"></label>
+                <input asp-for="NameVendor" class="form-control" />
+                <span asp-validation-for="NameVendor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameProduct" class="control-label"></label>
+                <input asp-for="NameProduct" class="form-control" />
+                <span asp-validation-for="NameProduct" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnitPrice" class="control-label"></label>
+                <input asp-for="UnitPrice" class="form-control" />
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfKillos" class="control-label"></label>
+                <input asp-for="NumberOfKillos" class="form-control" />
+                <span asp-validation-for="NumberOfKillos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Value" class="control-label"></label>
+                <input asp-for="Value" class="form-control" />
+                <span asp-validation-for="Value" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Portion" class="control-label"></label>
+                <input asp-for="Portion" class="form-control" />
+                <span asp-validation-for="Portion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Remains" class="control-label"></label>
+                <input asp-for="Remains" class="form-control" />
+                <span asp-validation-for="Remains" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label  class="control-label"> كلمة السر</label>
+                <input id="password" type="password" class="form-control" />
+                
+            </div>
+            
+            <div class="form-group">
+                <input id="hide" type="submit" value="Save" class="btn btn-primary" />   
+            </div>
+
+            <script>
+                document.querySelector('#hide').disabled = true;  
+            </script>
+
+            
+        </form>
+        <br />
+        <button onclick="check()" class="btn btn-danger">تاكيد</button>
+
+        <script>
+            function check(){
+                var input = document.getElementById("password").value;
+                if (input == 1937) {
+                    document.querySelector('#hide').disabled = false;
+                }
+            }
+        </script>
+    </div>
+</div>
+<br />
+<div>
+    <a class="btn btn-primary" asp-action="Index">رجوع</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
